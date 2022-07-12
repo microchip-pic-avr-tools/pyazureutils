@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>pyazureutils package &#8212; pyazureutils  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/microchip.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pyazureutils documentation" href="index.html" /> 
+  </head><body>
+    <header>
+        <div class="logo">
+            <a href="https://microchip.com" target="_blank">
+                <img src="_static/microchip.png" />
+            </a>
+        </div>
+    </header>
+
+    <div class="related-wrapper">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="pyazureutils documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyazureutils  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">pyazureutils package</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="document">
+        
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">pyazureutils package</a><ul>
+<li><a class="reference internal" href="#module-pyazureutils.custom_provision">Custom provisioning module</a></li>
+<li><a class="reference internal" href="#module-pyazureutils.iotcentral">IoT central enrollment module</a></li>
+<li><a class="reference internal" href="#module-pyazureutils">pyazureutils</a><ul>
+<li><a class="reference internal" href="#python-utilities-for-microsoft-azure">Python Utilities for Microsoft Azure</a></li>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">pyazureutils documentation</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pyazureutils.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+        <div class="documentwrapper">
+            <div class="bodywrapper">
+                <div class="body" role="main">
+                    
+  <section id="pyazureutils-package">
+<h1>pyazureutils package<a class="headerlink" href="#pyazureutils-package" title="Permalink to this heading">¶</a></h1>
+<section id="module-pyazureutils.custom_provision">
+<span id="custom-provisioning-module"></span><h2>Custom provisioning module<a class="headerlink" href="#module-pyazureutils.custom_provision" title="Permalink to this heading">¶</a></h2>
+<p>This script implements the “custom” Azure provisioning method, using
+self-generated root and signer certificates.
+It is intended to be invoked from iotprovison, but can also be run stand-alone.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyazureutils.custom_provision.AzureCustomProvisioner">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyazureutils.custom_provision.</span></span><span class="sig-name descname"><span class="pre">AzureCustomProvisioner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_ca_key_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca_cert_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_csr_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_cert_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_new_device_certificate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.custom_provision.AzureCustomProvisioner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides “custom” provisioning for Azure</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.custom_provision.AzureCustomProvisioner.provision">
+<span class="sig-name descname"><span class="pre">provision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.custom_provision.AzureCustomProvisioner.provision" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do the actual provisioning.</p>
+<p>This will generate a device certificate, and save it along with the CA signer certificate in WINC flash
+Returns the Device ID (Subject Key Identifier) if successful.
+Generated certificates and Device ID are saved to files as well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pykitcommander.firmwareinterface.ApplicationFirmwareInterface</span></code>
+or one of it’s sub-classes) – Firmware protocol driver</p></li>
+<li><p><strong>port</strong> (<em>str</em>) – Name of serial port</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Device ID (Subject Key Identifier) if successful, else None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyazureutils.iotcentral">
+<span id="iot-central-enrollment-module"></span><h2>IoT central enrollment module<a class="headerlink" href="#module-pyazureutils.iotcentral" title="Permalink to this heading">¶</a></h2>
+<p>Functions and classes for device registration with Azure IoT Central</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyazureutils.iotcentral.</span></span><span class="sig-name descname"><span class="pre">AzureIotCentral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Wrapper for interaction with Azure IoT Central</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.create_device">
+<span class="sig-name descname"><span class="pre">create_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.create_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create device via REST API call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> (<em>str</em>) – IoT central device ID</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – template to use for creation</p></li>
+<li><p><strong>display_name</strong> (<em>optional</em><em>, </em><em>str</em>) – friendly name to use</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.create_device_attestation">
+<span class="sig-name descname"><span class="pre">create_device_attestation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.create_device_attestation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create device attestation via REST API call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> (<em>str</em>) – IoT central device ID</p></li>
+<li><p><strong>certificate</strong> (<em>str</em>) – certificate for enrollment</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.get_default_subscription">
+<span class="sig-name descname"><span class="pre">get_default_subscription</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.get_default_subscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the default subscription using AZ CLI (az account show)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.get_device">
+<span class="sig-name descname"><span class="pre">get_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.get_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve device info via REST API call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device_id</strong> (<em>str</em>) – IoT central device ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.get_device_attestation">
+<span class="sig-name descname"><span class="pre">get_device_attestation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.get_device_attestation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve device attestation via REST API call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device_id</strong> (<em>str</em>) – IoT central device ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.get_device_template">
+<span class="sig-name descname"><span class="pre">get_device_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.get_device_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a device template by ID via REST API call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>template_id</strong> (<em>str</em>) – Template ID as defined by the DTDL e.g. dtmi:com:Microchip:PIC_IoT_WM;1 for the
+PIC-IoT Wx. More info
+<a class="reference external" href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier">here</a></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>result of the REST request</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.get_device_templates">
+<span class="sig-name descname"><span class="pre">get_device_templates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.get_device_templates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve device templates via REST API call</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.get_subscriptions">
+<span class="sig-name descname"><span class="pre">get_subscriptions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.get_subscriptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve subscriptions via REST API call</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.list_applications">
+<span class="sig-name descname"><span class="pre">list_applications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.list_applications" title="Permalink to this definition">¶</a></dt>
+<dd><p>List applications using AZ CLI</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.set_app_name">
+<span class="sig-name descname"><span class="pre">set_app_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.set_app_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the app name</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentral.set_default_subscription">
+<span class="sig-name descname"><span class="pre">set_default_subscription</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name_or_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentral.set_default_subscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the default subscription using AZ CLI (az account set –subscription &lt;name&gt;)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name_or_id</strong> (<em>str</em>) – subscription name or ID to set as default (no spaces allowed)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentralSession">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyazureutils.iotcentral.</span></span><span class="sig-name descname"><span class="pre">AzureIotCentralSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subscription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentralSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Session handling for Azure IoT Central</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentralSession.az_cli_command">
+<span class="sig-name descname"><span class="pre">az_cli_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentralSession.az_cli_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an Azure CLI command</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentralSession.az_rest_get">
+<span class="sig-name descname"><span class="pre">az_rest_get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentralSession.az_rest_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a rest-api GET call to Azure IoTCentral</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentralSession.az_rest_put">
+<span class="sig-name descname"><span class="pre">az_rest_put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentralSession.az_rest_put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a rest-api PUT call to Azure IoTCentral</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.AzureIotCentralSession.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.AzureIotCentralSession.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to Azure services by creating access tokens.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If no access tokens could be created.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyazureutils.iotcentral.iotcentral_register_device">
+<span class="sig-prename descclassname"><span class="pre">pyazureutils.iotcentral.</span></span><span class="sig-name descname"><span class="pre">iotcentral_register_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subscription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.iotcentral.iotcentral_register_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register an IoT device in Azure’s IoTCentral</p>
+<p>Registration requires that the user logs into Azure using the Azure CLI “az”
+Tokens will be collected from the user’s Azure local token storage</p>
+<p>Registration uses an application name which is either:</p>
+<ul class="simple">
+<li><p>collected from IoTCentral account (first one found is used)</p></li>
+<li><p>passed in as an argument</p></li>
+</ul>
+<p>Registration uses a certificate which is either:</p>
+<ul class="simple">
+<li><p>collected from local certificate storage for a kit, if a kit has been provisioned using this machine</p></li>
+<li><p>passed in as a filename argument</p></li>
+</ul>
+<p>Registration uses a device name which is derived from the subject common name of the certificate used</p>
+<p>Registration uses a display name which is either:</p>
+<ul class="simple">
+<li><p>derived from the kit serial number (if a kit is connected)</p></li>
+<li><p>passed in as an argument</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app_name</strong> – Application Name to register device with</p></li>
+<li><p><strong>certificate_file</strong> – Device certificate PEM file</p></li>
+<li><p><strong>display_name</strong> – Display name to register device with</p></li>
+<li><p><strong>device_template</strong> – Device template to use for registration</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pyazureutils">
+<span id="pyazureutils"></span><h2>pyazureutils<a class="headerlink" href="#module-pyazureutils" title="Permalink to this heading">¶</a></h2>
+<section id="python-utilities-for-microsoft-azure">
+<h3>Python Utilities for Microsoft Azure<a class="headerlink" href="#python-utilities-for-microsoft-azure" title="Permalink to this heading">¶</a></h3>
+<p>pyazureutils is a collection of utilities for interacting with Microsoft Azure.</p>
+<p>pyazureutils can be used as a library by instantiating any of the contained classes.</p>
+</section>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>pyazureutils is available:</dt><dd><ul class="simple">
+<li><p>install using pip from pypi: <a class="reference external" href="https://pypi.org/project/pyazureutils">https://pypi.org/project/pyazureutils</a></p></li>
+<li><p>browse source code on github: <a class="reference external" href="https://github.com/microchip-pic-avr-tools/pyazureutils">https://github.com/microchip-pic-avr-tools/pyazureutils</a></p></li>
+<li><p>read API documentation on github: <a class="reference external" href="https://microchip-pic-avr-tools.github.io/pyazureutils">https://microchip-pic-avr-tools.github.io/pyazureutils</a></p></li>
+<li><p>read the changelog on github: <a class="reference external" href="https://github.com/microchip-pic-avr-tools/pyazureutils/blob/main/CHANGELOG.md">https://github.com/microchip-pic-avr-tools/pyazureutils/blob/main/CHANGELOG.md</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h3>
+<p>This package uses pyedbglib through other libraries for USB communications.
+For more information see: <a class="reference external" href="https://pypi.org/project/pyedbglib/">https://pypi.org/project/pyedbglib/</a></p>
+</section>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h3>
+<p>This package uses the Python logging module for publishing log messages to library users.
+A basic configuration can be used (see example), but for best results a more thorough configuration is
+recommended in order to control the verbosity of output from dependencies in the stack which also use logging.</p>
+</section>
+</section>
+</section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-wrapper">
+        <div class="footer" role="contentinfo">
+            © Copyright 2021, Microchip Technology Inc
+        </div>
+    </div>
+  </body>
+</html>
