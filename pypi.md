@@ -20,7 +20,7 @@ Its primary consumer is iotprovision.
 The CLI requires that the Azure CLI ('az') is installed.
 
 ## Command-line interface
-pyazureutils CLI is invoked with one command, one action and optional switches.  See help and examples below for more details. 
+pyazureutils CLI is invoked with one command, one action and optional switches.  See help and examples below for more details.
 
 Getting help:
 ```bash
@@ -75,6 +75,6 @@ This package uses pyedbglib through other libraries for USB communications.  For
 ## Versioning
 pyazureutils version can be determined by:
 ```python
-from pyazureutils.version import VERSION as pyazureutils_version
-print("pyazureutils version {}".format(pyazureutils_version))
+from pyazureutils import __version__ as pyazureutils_version
+print(f"pyazureutils version {pyazureutils_version}")
 ```

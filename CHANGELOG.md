@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1] - December 2023
+
+### Added
+- DSG-5753 CLI catch-all and return code
+
+### Fixed
+- DSG-5640 Clean up unused pyedbglib dependencies / requirements
+- DSG-5754 Removed erroneous relic: AzureCustomProvisioner
+
 ## [1.0.0] - July 2022
 
 ### Fixed

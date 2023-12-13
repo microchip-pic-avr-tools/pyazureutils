@@ -1,12 +1,6 @@
 pyazureutils package
 ====================
 
-Custom provisioning module
---------------------------
-.. automodule:: pyazureutils.custom_provision
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 IoT central enrollment module
 -----------------------------

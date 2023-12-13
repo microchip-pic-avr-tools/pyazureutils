@@ -15,14 +15,8 @@ from yaml.scanner import ScannerError
 from .cli_iotcentral import iotcentral_cli_handler
 from .status_codes import STATUS_SUCCESS, STATUS_FAILURE
 
-try:
-    #pylint: disable=no-name-in-module
-    from .version import VERSION, BUILD_DATE, COMMIT_ID
-except ImportError:
-    print("Version info not found!")
-    VERSION = "0.0.0"
-    COMMIT_ID = "N/A"
-    BUILD_DATE = "N/A"
+from . import __version__ as VERSION
+from . import BUILD_DATE, COMMIT_ID
 
 def setup_logging(user_requested_level=logging.WARNING, default_path='logging.yaml',
                   env_key='MICROCHIP_PYTHONTOOLS_CONFIG'):

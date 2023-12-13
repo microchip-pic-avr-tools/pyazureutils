@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>pyazureutils package &#8212; pyazureutils  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/microchip.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/microchip.css?v=e28e0ba5" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="pyazureutils documentation" href="index.html" /> 
@@ -54,12 +51,34 @@
     <h3><a href="index.html">Table of Contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">pyazureutils package</a><ul>
-<li><a class="reference internal" href="#module-pyazureutils.custom_provision">Custom provisioning module</a></li>
-<li><a class="reference internal" href="#module-pyazureutils.iotcentral">IoT central enrollment module</a></li>
+<li><a class="reference internal" href="#module-pyazureutils.iotcentral">IoT central enrollment module</a><ul>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral</span></code></a><ul>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.create_device"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.create_device()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.create_device_attestation"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.create_device_attestation()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.get_default_subscription"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_default_subscription()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.get_device"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.get_device_attestation"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device_attestation()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.get_device_template"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device_template()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.get_device_templates"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device_templates()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.get_subscriptions"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_subscriptions()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.list_applications"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.list_applications()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.set_app_name"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.set_app_name()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentral.set_default_subscription"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.set_default_subscription()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentralSession"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession</span></code></a><ul>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentralSession.az_cli_command"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.az_cli_command()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentralSession.az_rest_get"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.az_rest_get()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentralSession.az_rest_put"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.az_rest_put()</span></code></a></li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.AzureIotCentralSession.connect"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.connect()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyazureutils.iotcentral.iotcentral_register_device"><code class="docutils literal notranslate"><span class="pre">iotcentral_register_device()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-pyazureutils">pyazureutils</a><ul>
 <li><a class="reference internal" href="#python-utilities-for-microsoft-azure">Python Utilities for Microsoft Azure</a></li>
 <li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#logging">Logging</a></li>
 </ul>
 </li>
@@ -98,43 +117,6 @@
                     
   <section id="pyazureutils-package">
 <h1>pyazureutils package<a class="headerlink" href="#pyazureutils-package" title="Permalink to this heading">¶</a></h1>
-<section id="module-pyazureutils.custom_provision">
-<span id="custom-provisioning-module"></span><h2>Custom provisioning module<a class="headerlink" href="#module-pyazureutils.custom_provision" title="Permalink to this heading">¶</a></h2>
-<p>This script implements the “custom” Azure provisioning method, using
-self-generated root and signer certificates.
-It is intended to be invoked from iotprovison, but can also be run stand-alone.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="pyazureutils.custom_provision.AzureCustomProvisioner">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyazureutils.custom_provision.</span></span><span class="sig-name descname"><span class="pre">AzureCustomProvisioner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signer_ca_key_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signer_ca_cert_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_csr_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_cert_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_new_device_certificate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.custom_provision.AzureCustomProvisioner" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Provides “custom” provisioning for Azure</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="pyazureutils.custom_provision.AzureCustomProvisioner.provision">
-<span class="sig-name descname"><span class="pre">provision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyazureutils.custom_provision.AzureCustomProvisioner.provision" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do the actual provisioning.</p>
-<p>This will generate a device certificate, and save it along with the CA signer certificate in WINC flash
-Returns the Device ID (Subject Key Identifier) if successful.
-Generated certificates and Device ID are saved to files as well.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>protocol</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">pykitcommander.firmwareinterface.ApplicationFirmwareInterface</span></code>
-or one of it’s sub-classes) – Firmware protocol driver</p></li>
-<li><p><strong>port</strong> (<em>str</em>) – Name of serial port</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Device ID (Subject Key Identifier) if successful, else None</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</section>
 <section id="module-pyazureutils.iotcentral">
 <span id="iot-central-enrollment-module"></span><h2>IoT central enrollment module<a class="headerlink" href="#module-pyazureutils.iotcentral" title="Permalink to this heading">¶</a></h2>
 <p>Functions and classes for device registration with Azure IoT Central</p>
@@ -346,11 +328,6 @@ Tokens will be collected from the user’s Azure local token storage</p>
 </dd>
 </dl>
 </section>
-<section id="dependencies">
-<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h3>
-<p>This package uses pyedbglib through other libraries for USB communications.
-For more information see: <a class="reference external" href="https://pypi.org/project/pyedbglib/">https://pypi.org/project/pyedbglib/</a></p>
-</section>
 <section id="logging">
 <h3>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h3>
 <p>This package uses the Python logging module for publishing log messages to library users.
@@ -367,7 +344,7 @@ recommended in order to control the verbosity of output from dependencies in the
     </div>
     <div class="footer-wrapper">
         <div class="footer" role="contentinfo">
-            © Copyright 2021, Microchip Technology Inc
+            © Copyright 2023, Microchip Technology Inc
         </div>
     </div>
   </body>

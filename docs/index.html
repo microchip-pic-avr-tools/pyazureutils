@@ -1,19 +1,16 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>pyazureutils documentation &#8212; pyazureutils  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/microchip.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+    <link rel="stylesheet" type="text/css" href="_static/microchip.css?v=e28e0ba5" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="pyazureutils package" href="pyazureutils.html" /> 
@@ -56,7 +53,6 @@
 <li><a class="reference internal" href="#">pyazureutils documentation</a><ul>
 <li><a class="reference internal" href="#python-utilities-for-microsoft-azure">Python Utilities for Microsoft Azure</a></li>
 <li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#logging">Logging</a></li>
 </ul>
 </li>
@@ -111,11 +107,6 @@
 </dd>
 </dl>
 </section>
-<section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
-<p>This package uses pyedbglib through other libraries for USB communications.
-For more information see: <a class="reference external" href="https://pypi.org/project/pyedbglib/">https://pypi.org/project/pyedbglib/</a></p>
-</section>
 <section id="logging">
 <h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h2>
 <p>This package uses the Python logging module for publishing log messages to library users.
@@ -126,12 +117,34 @@ recommended in order to control the verbosity of output from dependencies in the
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyazureutils.html">pyazureutils package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pyazureutils.html#module-pyazureutils.custom_provision">Custom provisioning module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyazureutils.html#module-pyazureutils.iotcentral">IoT central enrollment module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyazureutils.html#module-pyazureutils.iotcentral">IoT central enrollment module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.create_device"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.create_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.create_device_attestation"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.create_device_attestation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.get_default_subscription"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_default_subscription()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.get_device"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.get_device_attestation"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device_attestation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.get_device_template"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device_template()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.get_device_templates"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_device_templates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.get_subscriptions"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.get_subscriptions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.list_applications"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.list_applications()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.set_app_name"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.set_app_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentral.set_default_subscription"><code class="docutils literal notranslate"><span class="pre">AzureIotCentral.set_default_subscription()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentralSession"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentralSession.az_cli_command"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.az_cli_command()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentralSession.az_rest_get"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.az_rest_get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentralSession.az_rest_put"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.az_rest_put()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.AzureIotCentralSession.connect"><code class="docutils literal notranslate"><span class="pre">AzureIotCentralSession.connect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyazureutils.html#pyazureutils.iotcentral.iotcentral_register_device"><code class="docutils literal notranslate"><span class="pre">iotcentral_register_device()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="pyazureutils.html#module-pyazureutils">pyazureutils</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pyazureutils.html#python-utilities-for-microsoft-azure">Python Utilities for Microsoft Azure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyazureutils.html#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyazureutils.html#dependencies">Dependencies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyazureutils.html#logging">Logging</a></li>
 </ul>
 </li>
@@ -156,7 +169,7 @@ recommended in order to control the verbosity of output from dependencies in the
     </div>
     <div class="footer-wrapper">
         <div class="footer" role="contentinfo">
-            © Copyright 2021, Microchip Technology Inc
+            © Copyright 2023, Microchip Technology Inc
         </div>
     </div>
   </body>

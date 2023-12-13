@@ -13,7 +13,7 @@ def iotcentral_cli_handler(args):
     from .pyazureutils_errors import PyazureutilsError
     try:
         if args.action == "register-device":
-            status = _action_register_device(args)
+            return _action_register_device(args)
     except PyazureutilsError as exc:
         logger.error("Operation failed with %s: %s", type(exc).__name__, exc)
     return STATUS_FAILURE
